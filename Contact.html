@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Details</title>
+	<meta charset="utf-8" />
+    <link href="Styles/Contact.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <script src="Scripts/jquery-3.2.1.js"></script>
+    <style>
+        a:visited{
+            background-color:burlywood
+        }
+    </style>
+    <script>
+        //get a reference to the select element
+        
+        //request the JSON file and parse into the select element
+        $(document).ready(function () {
+            $.getJSON("ContactReason.json", function (data) {
+                $.each(data.reasons, function (index, value) {
+                    $('#reason').append("<option>" + value.reason + "</option>");
+                });
+            });
+        });
+        //display error while submitting without filled fields
+        $(document).ready(function () {
+            $('.form_error').hide();
+            $('#submit').click(function () {
+                var fname = $('#firstname').val();
+                var lname = $('#lastname').val();
+                var email = $('#email').val();
+                var reason = $('#reason option:selected').text();
+                var sub = $('#subject').val();
+                var tarea = $('#textarea').val();
+                if (fname == '') {
+                    $('#firstname').next().show();
+                    return false;
+                }
+                if (lname == '') {
+                    $('#lastname').next().show();
+                    return false;
+                }
+                if (email == '') {
+                    $('#email').next().show();
+                    return false;
+                }
+                if (IsEmail(email) == false) {
+                    $('#invalid_email').show();
+                    return false;
+                }
+                if (reason == '') {
+                    $('#reason').next().show();
+                    return false;
+                }
+                if (sub == '') {
+                    $('#subject').next().show();
+                    return false;
+                }
+                if (tarea == '') {
+                    $('#textarea').next().show();
+                    return false;
+                }
+                $('#contactform').fadeOut('slow',function(){
+                    $('#success').html(response);
+                    $('#success').fadeIn('fast');
+                });
+            
+            });
+        });
+        function IsEmail(email) {
+            var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!regex.test(email)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+       
+    </script>
+</head>
+<body>
+    <nav class="w3-bar w3-black">
+        <a href="index.html" class="w3-button">Home</a>
+        <a href="Resume.html" class="w3-button">Resume</a>
+        <a href="#" class="w3-button" id="print">Download Resume</a>
+        <a href="#contact" class="w3-button">Contact Me</a>
+    </nav>
+    <div class="container">
+        <form id="contactform" method="POST" action="http://formspree.io/gowthamkrazzy4@gmail.com">
+            <h2>Send Your Message Here!</h2>
+            <label>First Name</label><br/>
+            <input type="text" name="Firstname" id="firstname" placeholder="Your First Name" /><span class="form_error"  style="color:red">* This field is required!</span> <br />
+            <label>Last Name</label><br/>
+            <input type="text" name="Lastname" id="lastname" placeholder="Your Last Name"/><span class="form_error"  style="color:red">* This field is required!</span> <br />
+            <label>Email</label><br/>
+            <input type="text" name="Email" id="email" placeholder="Your email"><span class="form_error" style="color:red">* This field is required!</span><br /><span class="form_error" id="invalid_email" style="color:red">* This email is not valid!</span><br />
+            <label>Reason of Contact</label><br/>
+            <select id="reason" name="Reason_of_Contact:">
+            
+            </select><span class="form_error" style="color:red">* Please select one option!</span> <br />
+            <label>Subject</label><br/>
+            <input type="text" name="Subject" id="subject" placeholder="Subject"><span class="form_error"  style="color:red">* This field is required!</span> <br />
+            <label>Message</label><br/>
+            <textarea name="Message" placeholder="Your message" id="textarea"></textarea><span class="form_error"  style="color:red">* This field is required!</span> <br />
+            <button class="w3-button" type="submit" id="submit">Send</button>
+        </form>
+        <div id="success" style="color:red;"></div>
+    </div>
+</body>
+</html>

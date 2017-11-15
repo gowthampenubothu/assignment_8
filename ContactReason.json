@@ -1,0 +1,17 @@
+﻿{
+"reasons":[
+{
+   "id":"1",
+    "reason":"Call for Interview"
+},
+{
+   "id":"2",
+    "reason":"Job Offer"
+},
+{
+   "id":"3",
+    "reason":"More Information"
+}
+
+]
+}

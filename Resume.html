@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>MyResume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Styles/StyleSheet.css" rel="stylesheet" />
+    <link href="Styles/Profile.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="Content/themes/base/button.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.2.1.js"></script>
+    <script src="Scripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="//cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js">
+    </script>
+    <script type="text/javascript" src="//cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js">
+    </script>
+    <script src="app.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <style>
+        .nav{
+            list-style-type:none
+        }
+        a:visited{
+            background-color:burlywood
+        }
+
+        #btnTop {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 30px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: mediumaquamarine; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+            #btnTop:hover {
+                background-color: #555; /* Add a dark-grey background on hover */
+            }
+
+        .divClass {
+            border: 3px solid black;
+            font-size: 25px;
+            background-color: lightgray;
+            width: 250px;
+            padding: 5px;
+            display: inline-table;
+        }
+
+        .highlight {
+            background-color: green;
+            color: white;
+            border: 3px solid grey;
+        }
+        .active {
+    background-color: #4CAF50;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="w3-bar w3-black nav">
+        <a href="index.html" class="w3-button">Home</a>
+        <a href="Resume.html" class="w3-button">Resume</a>
+        <a href="#" class="w3-button" id="print">Download Resume</a>
+        <a href="Contact.html" class="w3-button">Contact Me</a>
+    </nav>
+
+    <div id="content">
+        <div class="card w3-quarter">
+            <!--<p>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px"
+                         src="http://jigsaw.w3.org/css-validator/images/vcss"
+                         alt="Valid CSS!" />
+                </a>
+            </p>-->
+            <img src="images/IMG_8461-1.jpg" style="width:50%" />
+            <p class="title">Sai Gowtham Penubothu</p>
+            <p class="title">Student & Web Designer</p>
+            <p>Marist College</p>
+            <a href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a>
+            <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/sai-gowtham-penubothu-7ba4759b/"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+            <p><button class="button1" onclick="alert('Dial 222-222-222!!!')">Contact Me</button></p>
+            <a href="mailto:gowthamkrazzy4@gmail.com"><p>gowtham@gmail.com</p></a>
+        </div>
+
+        <div class="right w3-threequarter w3-center w3-container">
+            <h4 id="myDiv" class="w3-tooltip">Career Objective</h4>
+
+            <div>
+                <ul>
+                    <li>
+                        &emsp;&emsp;Attain a challenging position in fast-paced, team environment, with an emphasis on web development and technology.
+                    </li>
+                </ul>
+            </div>
+
+            <h4>Education</h4>
+            <ul>
+                <li style="list-style-type:none">Marist College, Poughkeepsie, New York Master of Science in Computer Science- Information in System Management, December 2017,GPA:3.8</li>
+                <li style="list-style-type:none">Jawaharlal Nehru Technological University, Kakinada, India Bachelor of Technology in Computer Science Engineering, May 2015, India</li>
+            </ul>
+
+            <!--Open Skill Modal-->
+            <h4>Technical Skills <button class="button2" id="myBtn">View It!</button></h4>
+            <ul>
+                <li style="list-style-type:none">MS SUITE: Word, Excel, PowerPoint • Adobe Photoshop CS6</li>
+                <li style="list-style-type:none">Web Technologies: JavaScript, HTML5 , CSS, Bootstrap, jQuery</li>
+            </ul>
+            <h4>Professional Experience</h4>
+            <p style="font-weight:bold">Web Designer, Acentria IT Solutions (May 2014-June 2015)</p>
+            <ul>
+                <li style="list-style-type:none"> Front-end web design, and graphic design for marketing initiatives including websites, landing pages, publication ads, and catalogs</li>
+                <li style="list-style-type:none"> Excelled in designing effective marketing solutions, such as corporate identity packages, direct mail, booklets, and brochures </li>
+                <li style="list-style-type:none"> Developed and administered the company’s website, as well as the design, and maintenance of websites for clients </li>
+            </ul>
+            <h4>Certifications </h4>
+            <ul>
+                <li style="list-style-type:disc">	Microsoft Certified Professional in HTML5, CSS3 and JAVASCRIPT</li>
+                <li style="list-style-type:disc">	Microsoft Technology Associate in Database fundamentals, Networking fundamentals and HTML5</li>
+            </ul>
+            <h4>Extra-Curricular Activities</h4>
+            <ul>
+                <li style="list-style-type:disc">   Volunteer, Student President for Computer Science Association Hours</li>
+                <li style="list-style-type:disc">	Volunteer, President for Student Coordinators of my college Events in 2013-2015 </li>
+                <li style="list-style-type:disc">	Volunteer, Chancellor for Computer Society of India in my college </li>
+                <li style="list-style-type:disc">	Volunteer, Student President for Microsoft Cloud Competency in my College </li>
+                <li style="list-style-type:disc">	Volunteer, College Co-Ordinator for a Social Welfare group "R.I.S.E"</li>
+
+            </ul>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <!--Modal Content-->
+        <div class="modal-content">
+            <span class="close" id="closebtn">&times;</span>
+            <p>HTML</p>
+            <div class="container">
+                <div class="skills html">90%</div>
+            </div>
+            <p>CSS</p>
+            <div class="container">
+                <div class="skills css">80%</div>
+            </div>
+            <p>JQuery</p>
+            <div class="container">
+                <div class="skills jquery">60%</div>
+            </div>
+            <p>Database</p>
+            <div class="container">
+                <div class="skills database">80%</div>
+            </div>
+            <p>Android</p>
+            <div class="container">
+                <div class="skills android">60%</div>
+            </div>
+            <p>MS Suite</p>
+            <div class="container">
+                <div class="skills mssuite">65%</div>
+            </div>
+        </div>
+    </div>
+    <button id="btnTop" title="Go to top">Top |^|</button>
+    <footer id="footer" class="w3-container w3-padding-64 w3-center w3-black">
+        <p>131 Washington Ave, Poughkeepsie, NY | Tel:(222) 222-2222</p>
+    </footer>
+
+    <div id="editor"></div>
+    <div id="captchaPopup" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closebtn1">&times;</span>
+            <h4>Drag and Drop at the Correct Target to Download!</h4>
+            <div class="divClass">
+                Countries & Cities
+                <ul id="source">
+                    <li data-value="country">USA</li>
+                    <li data-value="country">India</li>
+                    <li data-value="country">UK</li>
+                    <li data-value="city">New York</li>
+                    <li data-value="city">Chennai</li>
+                    <li data-value="city">London</li>
+                </ul>
+            </div>
+
+            <div class="divClass" id="divCountries">
+                Countries
+                <ul id="countries"></ul>
+            </div>
+
+            <div class="divClass" id="divCities">
+                Cities
+                <ul id="cities"></ul>
+            </div>
+            <button type="submit" class="w3-button" id="btnDownload" disabled="disabled">Download Resume</button>
+
+        </div>
+    </div>
+</body>
+</html>
